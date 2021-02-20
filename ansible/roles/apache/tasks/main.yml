@@ -41,6 +41,17 @@
     - php7.2-zip
     - php7.2-intl
 
+    - libapache2-mod-php7.3
+    - php7.3-cli
+    - php7.3-curl
+    - php7.3-gd
+    - php7.3-mysql
+    - php7.3-mbstring
+    - php7.3-simplexml
+    - php7.3-xml
+    - php7.3-zip
+    - php7.3-intl
+
     - php-apcu
     - php-xdebug
 
@@ -120,6 +131,7 @@
     - { file: '99-debug.ini', phpversion: '7.0'}
     - { file: '99-debug.ini', phpversion: '7.1'}
     - { file: '99-debug.ini', phpversion: '7.2'}
+    - { file: '99-debug.ini', phpversion: '7.3'}
   become: yes
   notify:
     - apache-restart
@@ -129,11 +141,11 @@
   with_items:
     - { file: '99-debug.ini', phpversion: '7.0'}
     - { file: '99-debug.ini', phpversion: '7.1'}
-    - { file: '99-debug.ini', phpversion: '7.2'}
+    - { file: '99-debug.ini', phpversion: '7.3'}
   become: yes
 
 - name: Set PHP version
-  command: /home/vagrant/bin/changephp_7.2
+  command: /home/vagrant/bin/changephp_7.3
   become: yes
 
 - name: be sure apache is started and enabled

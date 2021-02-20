@@ -12,11 +12,8 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 8000, host: 8094
     config.vm.network "forwarded_port", guest: 35729, host: 35729
 
-    config.vm.hostname = "shopware.local"
-
-    #config.vm.synced_folder "../src", "/home/vagrant/www/shopware", create: true, type: "smb"
-    #config.vm.synced_folder "../src", "/home/vagrant/www/shopware", create: true, type: "nfs"
-    #config.vm.synced_folder "../src", "/home/vagrant/www/shopware", create: true;
+    config.vm.hostname = "shopware.vagrant"
+#    config.vm.synced_folder "../shopware", "/home/vagrant/www/shopware", create: true, type: "nfs"
 
     config.vm.provider :virtualbox do |vb|
         vb.name = "vagrant_shopware";
